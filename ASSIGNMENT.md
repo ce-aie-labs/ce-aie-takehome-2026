@@ -129,7 +129,7 @@ Supervisor YAML 예시:
 spec_version: v1
 kind: native
 name: scenario_supervisor
-llm: watsonx/openai/gpt-oss-120b
+llm: groq/openai/gpt-oss-120b
 style: react
 description: |
   Supervisor for <scenario> assistant. Routes to specialist collaborators.
@@ -182,8 +182,8 @@ Milvus 접속 정보, API key, password 등 민감정보는 repository에 commit
 
 ```bash
 python -m pip install --upgrade "ibm-watsonx-orchestrate[agentops]"
-orchestrate env add my-env --url <SHARED_INSTANCE_URL>
-orchestrate env activate my-env -a <SHARED_API_KEY>
+orchestrate env add --name my-env --url <SHARED_INSTANCE_URL>
+orchestrate env activate my-env --api-key <SHARED_API_KEY>
 orchestrate env list
 ```
 
@@ -191,8 +191,9 @@ orchestrate env list
 
 ### 6.2 LLM 모델
 
-- 권장 모델: `watsonx/openai/gpt-oss-120b`
+- 권장 모델: `groq/openai/gpt-oss-120b`
 - 필요 시 사용 가능한 대체 모델은 Slack 또는 과제 안내에서 공유합니다.
+- 실제 사용 가능한 모델은 `orchestrate models list`에서 확인하세요.
 - 모델 선택 근거를 README에 1줄 작성하세요.
 
 ### 6.3 IBM 제공

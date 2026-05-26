@@ -36,12 +36,16 @@ source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install --upgrade "ibm-watsonx-orchestrate[agentops]" "ibm-watsonx-ai==1.5.11" pymilvus
 
-orchestrate env add my-env --url <SHARED_INSTANCE_URL>
-orchestrate env activate my-env -a <SHARED_API_KEY>
+orchestrate env add --name my-env --url <SHARED_INSTANCE_URL>
+orchestrate env activate my-env --api-key <SHARED_API_KEY>
 orchestrate env list
+orchestrate models list
 ```
 
 Python 3.11+를 기본으로 사용하세요. 설치 또는 ADK 호환성 문제가 있으면 Python 3.12 환경으로 다시 시도하세요.
+ADK 2.10.x 기준으로 `env add`는 `--name`과 `--url` 옵션이 필요합니다.
+`orchestrate models list`에서 현재 환경에 노출되는 권장 모델을 확인한 뒤 agent YAML의 `llm` 값을 맞추세요.
+제공된 SaaS 환경에서는 `groq/openai/gpt-oss-120b`가 기본 권장 모델로 확인되었습니다.
 
 `.env.example` 예시:
 
@@ -133,7 +137,7 @@ Collaborator agents를 supervisor보다 먼저 import하세요.
 spec_version: v1
 kind: native
 name: rag_specialist_agent
-llm: watsonx/openai/gpt-oss-120b
+llm: groq/openai/gpt-oss-120b
 style: default
 description: >
   Answers document-grounded questions from the scenario Knowledge Base.
@@ -151,7 +155,7 @@ knowledge_base:
 spec_version: v1
 kind: native
 name: tool_specialist_agent
-llm: watsonx/openai/gpt-oss-120b
+llm: groq/openai/gpt-oss-120b
 style: default
 description: >
   Calls Python tools for calculations, mock lookups, structured data lookup,
@@ -169,7 +173,7 @@ tools:
 spec_version: v1
 kind: native
 name: scenario_supervisor
-llm: watsonx/openai/gpt-oss-120b
+llm: groq/openai/gpt-oss-120b
 style: react
 description: |
   Supervisor for the selected scenario assistant. Routes document-grounded
@@ -202,9 +206,9 @@ description: |
   Public Korean documents for the selected scenario. Use for document-grounded
   answers that require citations.
 documents:
-  - path: data/sample_policy_01.pdf
-  - path: data/sample_policy_02.pdf
-  - path: data/sample_report_01.html
+  - path: ../data/sample_policy_01.pdf
+  - path: ../data/sample_policy_02.pdf
+  - path: ../data/sample_report_01.html
 vector_index:
   embeddings_model_name: intfloat/multilingual-e5-large
   chunk_size: 500
@@ -223,6 +227,7 @@ cd "$ROOT"
 orchestrate tools import -k python -f tools/python/business_tools.py
 
 orchestrate knowledge-bases import -f knowledge_base/kb.yaml
+orchestrate knowledge-bases status -n scenario_kb
 
 orchestrate agents import -f agents/rag_specialist.yaml
 orchestrate agents import -f agents/tool_specialist.yaml
@@ -230,6 +235,11 @@ orchestrate agents import -f agents/supervisor.yaml
 
 echo "Imported. Test in the wxO SaaS chat/preview UI with agent: scenario_supervisor"
 ```
+
+`knowledge_base/kb.yaml` 안의 document path는 YAML 파일 위치 기준으로 해석됩니다.
+위 권장 구조처럼 `knowledge_base/kb.yaml`과 `data/`가 sibling이면 `../data/...`를 사용하세요.
+Knowledge Base import 후 문서 ingest/indexing은 몇 분 이상 걸릴 수 있습니다.
+`Ready`가 `False`이고 status message가 `documents are going to be ingested and indexed`라면 잠시 기다린 뒤 `status`를 다시 확인하세요.
 
 ## 6. Candidate README Template
 
@@ -284,14 +294,27 @@ echo "Imported. Test in the wxO SaaS chat/preview UI with agent: scenario_superv
 
 ## 7. Debugging Tips
 
-- `401` 또는 인증 실패: `orchestrate env activate <env> -a <api_key>`를 다시 실행하세요.
+- `401` 또는 인증 실패: `orchestrate env activate <env> --api-key <api_key>`를 다시 실행하세요.
 - `unknown collaborator`: collaborator agents를 supervisor보다 먼저 import하세요.
 - Tool이 호출되지 않음: tool agent description에 tool의 역할을 더 구체적으로 적으세요.
 - RAG 답변에 출처가 없음: RAG agent instructions에 citation 형식을 명시하고 validation 질문을 다시 테스트하세요.
 - 검색 품질이 낮음: 문서 전처리, chunk size/overlap, metadata, 핵심 질문 phrasing을 함께 확인하세요.
 - Milvus 접속 실패: host/port, `secure=True`, `db_name`, user/password 오타를 확인하세요.
+- SaaS 환경에서는 `orchestrate chat ask`보다 wxO 웹 콘솔의 chat/preview 화면으로 최종 동작을 확인하세요.
 
-## 8. References
+## 8. Tested Against Provided SaaS
+
+아래 항목은 2026년 5월 27일 KST 기준으로 제공된 wxO SaaS 인스턴스에서 확인했습니다. API key 값은 문서나 repository에 저장하지 않았습니다.
+
+- `ibm-watsonx-orchestrate[agentops]` 설치 결과: ADK `2.10.0`
+- `orchestrate env add --name ce-aie-takehome --url <INSTANCE_URL>` 성공
+- `orchestrate env activate ce-aie-takehome --api-key <API_KEY>` 성공
+- `orchestrate models list`에서 `groq/openai/gpt-oss-120b`가 기본 권장 모델로 표시됨
+- Python tool 2개 import 성공
+- Knowledge Base YAML import 시 document path는 `../data/...` 형태여야 함
+- Native collaborator 2개와 supervisor 1개 import 성공
+
+## 9. References
 
 - IBM watsonx Orchestrate ADK: https://developer.watson-orchestrate.ibm.com/
 - IBM watsonx Orchestrate product documentation: https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=getting-started-watsonx-orchestrate

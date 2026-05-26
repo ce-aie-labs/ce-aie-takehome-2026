@@ -102,7 +102,7 @@ PY
 
 ## 5. Test 2 - Chat Completion
 
-과제의 wxO 권장 모델은 `watsonx/openai/gpt-oss-120b` 형식이지만, watsonx.ai Python SDK에서는 model ID를 `openai/gpt-oss-120b`처럼 사용합니다.
+wxO agent YAML의 모델 ID는 provider prefix를 포함해 `groq/openai/gpt-oss-120b`처럼 사용하지만, watsonx.ai Python SDK에서는 model ID를 `openai/gpt-oss-120b`처럼 사용합니다.
 
 ```bash
 python - <<'PY'
