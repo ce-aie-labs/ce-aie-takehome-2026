@@ -4,7 +4,8 @@
 
 이 저장소는 후보자가 과제를 시작할 때 처음 읽는 문서입니다. 상세 요구사항은
 [ASSIGNMENT.md](ASSIGNMENT.md), Milvus 접속 예시는 [MILVUS_USAGE.md](MILVUS_USAGE.md),
-starter snippets는 [SKELETON.md](SKELETON.md)를 확인하세요.
+watsonx.ai 연결 테스트는 [WXAI_USAGE.md](WXAI_USAGE.md), wxO agent/tool 예시는
+[WXO_USAGE.md](WXO_USAGE.md)를 확인하세요.
 
 ## Quick Facts
 
@@ -70,7 +71,7 @@ password가 포함된 파일은 제출 repository에 들어가면 안 됩니다.
 - [ASSIGNMENT.md](ASSIGNMENT.md): 공식 과제 요구사항과 평가 기준
 - [MILVUS_USAGE.md](MILVUS_USAGE.md): watsonx.data Milvus 접속 정보와 Python sanity check
 - [WXAI_USAGE.md](WXAI_USAGE.md): watsonx.ai API key/project ID 확인과 SDK 연결 테스트
-- [SKELETON.md](SKELETON.md): agent YAML, Python tool, Knowledge Base starter snippets
+- [WXO_USAGE.md](WXO_USAGE.md): watsonx Orchestrate agent YAML, Python tool, Knowledge Base 예시
 - [JD.md](JD.md): 채용 JD 원문
 
 ## Evaluation Focus

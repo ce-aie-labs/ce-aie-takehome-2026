@@ -1,6 +1,6 @@
-# SKELETON - wxO Multi-Agent RAG Starter
+# WXO_USAGE - watsonx Orchestrate Usage Guide
 
-Multi-Agent, Multi-Tool RAG Assistant 과제용 starter snippets입니다. 그대로 복사한 뒤 선택한 시나리오에 맞게 이름, 설명, tool, 문서를 바꿔 사용하세요.
+Multi-Agent, Multi-Tool RAG Assistant 과제용 watsonx Orchestrate 사용 가이드입니다. 그대로 복사한 뒤 선택한 시나리오에 맞게 이름, 설명, tool, 문서를 바꿔 사용하세요.
 
 이 문서는 최소 구현 경로에 집중합니다. OpenAPI, MCP, evaluation CLI, 외부 RAG service는 선택 사항입니다.
 
