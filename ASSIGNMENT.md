@@ -382,6 +382,8 @@ ADK CLI(`orchestrate`)와 IDE만 동작하면 충분합니다. watsonx Orchestra
 - IBM watsonx Orchestrate ADK 공식 문서: https://developer.watson-orchestrate.ibm.com/
 - IBM watsonx Orchestrate product documentation: https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base?topic=getting-started-watsonx-orchestrate
 - IBM watsonx Orchestrate ADK GitHub examples: https://github.com/IBM/ibm-watsonx-orchestrate-adk/tree/main/examples
+- IBM watsonx.ai Python SDK documentation: https://ibm.github.io/watsonx-ai-python-sdk/v1.5.11/index.html
+- IBM watsonx.ai API documentation: https://cloud.ibm.com/apidocs/watsonx-ai
 - IBMid 생성 가이드: https://www.ibm.com/docs/en/storage-defender/base?topic=in-creating-ibmid
 
 ---
