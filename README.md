@@ -74,6 +74,11 @@ password가 포함된 파일은 제출 repository에 들어가면 안 됩니다.
 - [WXO_USAGE.md](WXO_USAGE.md): watsonx Orchestrate agent YAML, Python tool, Knowledge Base 예시
 - [JD.md](JD.md): 채용 JD 원문
 
+## Videos
+
+- [03_getwxoapikey.mp4](videos/03_getwxoapikey.mp4): wxO instance URL/API key 확인 예시
+- [04_getwxaiapikey.mp4](videos/04_getwxaiapikey.mp4): watsonx.ai project ID/API key 확인 예시
+
 ## Evaluation Focus
 
 평가자는 기능의 수보다 아래 항목을 더 중요하게 봅니다.
