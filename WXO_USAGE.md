@@ -193,10 +193,10 @@ collaborators:
   - tool_specialist_agent
 ```
 
-## 4. External Milvus Knowledge Base
+## 4. watsonx.data Milvus Knowledge Base
 
 이 과제의 필수 RAG 경로는 wxO built-in document upload Knowledge Base가 아닙니다.
-문서를 직접 전처리하고 제공된 watsonx.data Milvus database에 적재한 뒤, wxO Knowledge Base가 해당 external Milvus collection을 검색하도록 연결해야 합니다.
+문서를 직접 전처리하고 제공된 watsonx.data Milvus database에 적재한 뒤, wxO Knowledge Base가 해당 Milvus collection을 검색하도록 연결해야 합니다.
 
 아래 예시는 이미 `scenario_chunks` collection에 chunk text, embedding, source metadata가 적재되어 있다고 가정합니다.
 Milvus 적재 방법은 [MILVUS_USAGE.md](MILVUS_USAGE.md)를 참고하세요.
@@ -239,7 +239,7 @@ spec_version: v1
 kind: knowledge_base
 name: scenario_kb
 description: |
-  External watsonx.data Milvus knowledge base for the selected scenario.
+  watsonx.data Milvus knowledge base for the selected scenario.
 prioritize_built_in_index: false
 conversational_search_tool:
   index_config:
@@ -300,7 +300,7 @@ echo "Imported. Test in the wxO SaaS chat/preview UI with agent: scenario_superv
 ```
 
 Knowledge Base import 전에 Milvus collection 적재와 Python search sanity check를 먼저 끝내세요.
-`orchestrate knowledge-bases import`는 Milvus에 문서를 넣어주는 명령이 아니라, 이미 존재하는 external Milvus index를 wxO에 연결하는 명령입니다.
+`orchestrate knowledge-bases import`는 Milvus에 문서를 넣어주는 명령이 아니라, 이미 존재하는 Milvus collection을 wxO에 연결하는 명령입니다.
 
 ## 6. Candidate README Template
 
@@ -328,7 +328,7 @@ Knowledge Base import 전에 Milvus collection 적재와 Python search sanity ch
 - Supervisor:
 - Collaborators:
 - Tools:
-- Knowledge Base: external watsonx.data Milvus collection name, embedding model, field mapping
+- Knowledge Base: watsonx.data Milvus collection name, embedding model, field mapping
 
 ## Reproduce
 1. Create venv and install dependencies.
@@ -373,7 +373,7 @@ Knowledge Base import 전에 Milvus collection 적재와 Python search sanity ch
 - `orchestrate env activate ce-aie-takehome --api-key <API_KEY>` 성공
 - `orchestrate models list`에서 `groq/openai/gpt-oss-120b`가 기본 권장 모델로 표시됨
 - Python tool 2개 import 성공
-- Knowledge Base YAML은 `documents/vector_index`가 아니라 `conversational_search_tool.index_config[].milvus` external index 형태여야 함
+- Knowledge Base YAML은 `documents/vector_index`가 아니라 `conversational_search_tool.index_config[].milvus` 형태여야 함
 - Native collaborator 2개와 supervisor 1개 import 성공
 
 ## 9. References

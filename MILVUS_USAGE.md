@@ -4,7 +4,7 @@
 
 가장 중요한 원칙은 세 가지입니다.
 
-- 최종 제출의 필수 RAG 경로는 **watsonx.data Milvus에 직접 적재한 collection + wxO Knowledge Base external Milvus 연결**입니다.
+- 최종 제출의 필수 RAG 경로는 **watsonx.data Milvus에 직접 적재한 collection + wxO Knowledge Base 연결**입니다.
 - wxO built-in document upload Knowledge Base는 전처리, embedding 모델, index schema를 직접 통제하기 어렵기 때문에 필수 RAG 요건으로 인정하지 않습니다.
 - 개인별 database 이름, user, password/API key는 절대 GitHub repository에 commit하지 않습니다.
 
@@ -44,7 +44,7 @@ MILVUS_COLLECTION=scenario_chunks
 3. 문서를 직접 전처리하고 chunk를 만듭니다.
 4. watsonx.ai embedding 또는 동등한 embedding 모델로 chunk vector를 생성합니다.
 5. 제공된 watsonx.data Milvus database에 collection을 만들고 chunk/vector/metadata를 적재합니다.
-6. wxO Knowledge Base YAML에서 해당 Milvus collection을 external vector index로 연결합니다.
+6. wxO Knowledge Base YAML에서 해당 Milvus collection을 연결합니다.
 7. RAG collaborator agent가 Knowledge Base를 사용하도록 설정합니다.
 8. 핵심 질문 5개 중 최소 2개에서 Milvus 검색과 출처 인용이 실제로 되는지 검증합니다.
 
@@ -177,7 +177,7 @@ def search(collection, query_vector: list[float], limit: int = 5) -> list[dict]:
 
 ## 7. Connect From wxO Knowledge Base
 
-Milvus collection을 적재한 뒤 [WXO_USAGE.md](WXO_USAGE.md)의 external Milvus Knowledge Base YAML 예시를 사용하세요.
+Milvus collection을 적재한 뒤 [WXO_USAGE.md](WXO_USAGE.md)의 Milvus Knowledge Base YAML 예시를 사용하세요.
 
 중요한 연결값:
 
