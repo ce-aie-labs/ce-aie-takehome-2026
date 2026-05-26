@@ -1,0 +1,14 @@
+% Pandoc + xelatex header for Korean rendering
+% - xeCJK gives CJK fallback for both main and mono fonts
+% - IBM Plex Sans KR has Hangul; IBM Plex Mono is Latin-only
+
+\usepackage{xeCJK}
+\setCJKmainfont{IBM Plex Sans KR}
+\setCJKsansfont{IBM Plex Sans KR}
+\setCJKmonofont{IBM Plex Sans KR}
+
+% Preserve Korean word spaces and soften CJK line breaking.
+\xeCJKsetup{
+  CJKspace=true,
+  CJKecglue={\hskip 0.15em plus 0.05em minus 0.05em}
+}
