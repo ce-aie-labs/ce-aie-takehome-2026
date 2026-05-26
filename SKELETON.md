@@ -34,7 +34,7 @@ Multi-Agent, Multi-Tool RAG Assistant 과제용 starter snippets입니다. 그�
 python3.11 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
-python -m pip install --upgrade "ibm-watsonx-orchestrate[agentops]" pymilvus
+python -m pip install --upgrade "ibm-watsonx-orchestrate[agentops]" "ibm-watsonx-ai==1.5.11" pymilvus
 
 orchestrate env add my-env --url <SHARED_INSTANCE_URL>
 orchestrate env activate my-env -a <SHARED_API_KEY>
@@ -57,6 +57,13 @@ MILVUS_PORT=31140
 MILVUS_DATABASE=candidateXX_XXXXXXXX
 MILVUS_USER=ibmlhapikey_candidateXX
 MILVUS_PASSWORD=replace_with_your_api_key
+
+# watsonx.ai SDK test values. See WXAI_USAGE.md.
+WATSONX_PROJECT_ID=<YOUR_PROJECT_ID>
+WATSONX_URL=https://us-south.ml.cloud.ibm.com
+WATSONX_APIKEY=replace_with_your_api_key
+WATSONX_CHAT_MODEL_ID=openai/gpt-oss-120b
+WATSONX_EMBED_MODEL_ID=intfloat/multilingual-e5-large
 ```
 
 ## 2. Python Tools

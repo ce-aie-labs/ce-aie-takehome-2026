@@ -42,7 +42,8 @@ build README.md        README.pdf        0.8in 0 0.9
 build JD.md            JD.pdf            0.8in 0 0.9
 build ASSIGNMENT.md    ASSIGNMENT.pdf    1in   2 0.9  true
 build MILVUS_USAGE.md  MILVUS_USAGE.pdf  0.8in 2 0.9  true
+build WXAI_USAGE.md    WXAI_USAGE.pdf    0.8in 2 0.9  true
 build SKELETON.md      SKELETON.pdf      0.8in 2 0.85 true
 
 echo "[done]"
-ls -la README.pdf JD.pdf ASSIGNMENT.pdf MILVUS_USAGE.pdf SKELETON.pdf
+ls -la README.pdf JD.pdf ASSIGNMENT.pdf MILVUS_USAGE.pdf WXAI_USAGE.pdf SKELETON.pdf
