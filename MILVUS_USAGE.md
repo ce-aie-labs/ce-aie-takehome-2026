@@ -2,6 +2,8 @@
 
 본 문서는 과제에서 제공되는 watsonx.data Milvus database를 사용하는 방법을 설명합니다.
 
+아래 schema, chunking, index, insert/search 코드는 권장 시작점입니다. 선택한 문서와 embedding 모델에 맞게 다른 schema나 구현을 사용해도 됩니다. 단, ASSIGNMENT.md의 최소 요구사항, 보안 원칙, 재현 가능성, 검증 결과 제출은 반드시 충족해야 합니다.
+
 가장 중요한 원칙은 세 가지입니다.
 
 - 최종 제출의 필수 RAG 경로는 **watsonx.data Milvus에 직접 적재한 collection + wxO Knowledge Base 연결**입니다.

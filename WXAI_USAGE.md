@@ -2,6 +2,8 @@
 
 본 문서는 과제에서 watsonx.ai API key, project ID, service URL을 확인하고 Python SDK로 간단히 연결 테스트하는 방법을 설명합니다.
 
+아래 SDK/API 호출 코드는 연결 확인을 위한 참고 예시입니다. 선택한 구현 방식에 따라 LangChain, REST API, 다른 SDK wrapper를 사용해도 됩니다. 단, ASSIGNMENT.md의 최소 요구사항, 보안 원칙, 재현 가능성, 검증 결과 제출은 반드시 충족해야 합니다.
+
 실제 API key는 절대 GitHub repository에 commit하지 마세요. README, `.env.example`, screenshot, notebook output에도 실제 key를 남기면 안 됩니다.
 
 ## 1. What You Need

@@ -1,8 +1,9 @@
 # WXO_USAGE - watsonx Orchestrate Usage Guide
 
-Multi-Agent, Multi-Tool RAG Assistant 과제용 watsonx Orchestrate 사용 가이드입니다. 그대로 복사한 뒤 선택한 시나리오에 맞게 이름, 설명, tool, Milvus collection 설정을 바꿔 사용하세요.
+Multi-Agent, Multi-Tool RAG Assistant 과제용 watsonx Orchestrate 사용 가이드입니다. 아래 agent YAML, tool, Knowledge Base 설정은 starter template이며, 선택한 시나리오와 설계에 맞게 바꿔 사용하세요.
 
 이 문서는 최소 구현 경로에 집중합니다. OpenAPI, MCP, evaluation CLI, 외부 RAG service는 선택 사항입니다.
+다른 구조나 구현을 사용해도 되지만, ASSIGNMENT.md의 최소 요구사항, 보안 원칙, 재현 가능성, 검증 결과 제출은 반드시 충족해야 합니다.
 
 ## 0. Recommended Repository Structure
 
