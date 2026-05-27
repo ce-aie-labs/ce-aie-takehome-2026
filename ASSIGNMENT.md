@@ -4,7 +4,7 @@
 
 > - **과제 진행 기간:** 2026년 5월 27일 (수) 09:00 - 2026년 5월 31일 (일) 23:59 (KST)
 > - **제출 마감:** 2026년 5월 31일 (일) 23:59 (KST)
-> - **제출 방식:** Private GitHub repository 생성 후 평가자 collaborator 초대, Slack 채널에 공지되는 Google Form으로 제출
+> - **제출 방식:** Private GitHub repository 생성 후 지정된 평가자 GitHub 계정을 collaborator로 초대하고, Slack 채널에 공지되는 Google Form으로 제출
 > - **Q&A:** 과제 시작 전 Slack 채널 초대 예정
 > - **사용 언어:** 코드/식별자/커밋 메시지는 영문, README와 리포트는 국문 또는 영문
 
@@ -205,7 +205,12 @@ IBMid가 없는 경우 IBM 공식 가이드에 따라 계정을 생성하세요.
 
 ## 7. 제출물
 
-하나의 **private GitHub repository**로 제출합니다. 제출 전 안내받은 평가자 GitHub 계정을 repository collaborator로 초대해 주세요.
+하나의 **private GitHub repository**로 제출합니다. 제출 전 아래 평가자 GitHub 계정을 repository collaborator로 초대해 주세요.
+
+- `jihunkeom`
+- `minnie0531`
+- `suyeon96`
+- `kiyeonjeon21`
 
 최종 제출은 Slack 채널에 공지되는 Google Form을 통해 진행합니다. GitHub repository URL만 Slack DM이나 이메일로 제출하지 마세요.
 
@@ -272,7 +277,7 @@ Repository 구조는 자유롭게 정해도 됩니다. 아래는 예시입니다
 | 이메일 | 필수 | 채용 전형에서 사용하는 이메일 |
 | IBMid 이메일 | 필수 | watsonx Orchestrate SaaS 접근 권한을 받은 IBMid |
 | GitHub repository URL | 필수 | 최종 제출 private repository URL |
-| 평가자 collaborator 초대 여부 | 필수 | 안내받은 평가자 GitHub 계정을 collaborator로 초대했는지 확인 |
+| 평가자 collaborator 초대 여부 | 필수 | `jihunkeom`, `minnie0531`, `suyeon96`, `kiyeonjeon21`을 collaborator로 초대했는지 확인 |
 | 선택 시나리오 | 필수 | A-E 중 선택한 시나리오명 |
 | AI/code assistant 사용 내역 | 필수 | 사용한 도구명, 요금제/환경, 도움받은 범위 |
 | 발표 자료 파일 경로 | 필수 | repository에 포함한 발표 자료 PDF 경로. 기본값: `demo/slide.pdf` |
