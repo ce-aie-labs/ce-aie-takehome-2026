@@ -216,9 +216,6 @@ connection YAML에는 실제 username/password를 쓰지 않습니다. credentia
 spec_version: v1
 kind: connection
 app_id: milvus_kb
-resource:
-  component: knowledge
-  category: milvus
 environments:
   draft:
     kind: basic
